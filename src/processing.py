@@ -1,7 +1,7 @@
 import typing
 
 
-def filter_by_state(operations: list[dict], state: str = 'EXECUTED') -> list[dict]:
+def filter_by_state(operations: list[dict], state: str = "EXECUTED") -> list[dict]:
     """Функция принимает список словарей и опционально значение для ключа state (по умолчанию 'EXECUTED').
     Функция возвращает новый список словарей, содержащий только те словари,
     у которых ключ state соответствует указанному значению"""

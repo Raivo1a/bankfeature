@@ -8,9 +8,7 @@ def mask_account_card(account_card: str) -> str:
     parts = account_card.split()
     card_type = " ".join(parts[:-1])
 
-    if len(account_card) <= 0:
-        return "Ошибка! Введите корректный номер карты или счета"
-    elif "счет" in card_type.lower():
+    if "счет" in card_type.lower():
         masked_account_number = f"{account_card[:4]} {get_mask_account(account_card[5:])}"
         return masked_account_number
     else:
@@ -19,7 +17,7 @@ def mask_account_card(account_card: str) -> str:
 
 
 def get_date(date: str) -> str:
-    '''возвращает строку с датой в формате "ДД.ММ.ГГГГ"'''
+    '''Возвращает строку с датой в формате "ДД.ММ.ГГГГ"'''
     current_date = datetime.fromisoformat(date)
     date_formatted = current_date.strftime("%d.%m.%Y")
     return date_formatted

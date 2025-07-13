@@ -1,6 +1,7 @@
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.processing import filter_by_state, sort_by_date
 from src.widget import get_date, mask_account_card
+from src.external_api import get_transaction_amount
 
 account_card = input("Введите номер: ")
 date = input("Введите дату: ")
@@ -79,3 +80,6 @@ for transaction in transaction_descriptions(transactions):
 a = card_number_generator(1, 10)
 for n in a:
     print(n)
+
+for transaction in transactions:
+    print(get_transaction_amount(transaction))

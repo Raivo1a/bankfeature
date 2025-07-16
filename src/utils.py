@@ -14,7 +14,7 @@ def get_operations_data(path: str) -> list:
     logger.info("Запрос на преобразование файла json")
     with open(path, "r", encoding="utf-8") as f:
         try:
-            logger.info("Список транзакций успешно создан.")
+            logger.info("Список транзакций успешно создан")
             return json.load(f)
         except json.JSONDecodeError:
             logger.error("Ошибка декодирования JSON-файла")

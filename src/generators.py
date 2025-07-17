@@ -4,8 +4,12 @@ from typing import Any, Generator, Iterator
 def filter_by_currency(transactions: list, currency: str) -> Generator:
     """Функция возвращает итератор, который поочередно выдает транзакции, где валюта соответствует заданной"""
     for transaction in transactions:
-        if transaction["operationAmount"]["currency"]["code"] == currency:
-            yield transaction
+        try:
+            if transaction["operationAmount"]["currency"]["code"] == currency:
+                yield transaction
+        except KeyError:
+            if transaction["currency_code"] == currency:
+                yield transaction
 
 
 def transaction_descriptions(transactions: list) -> Generator:

@@ -1,8 +1,16 @@
 from src.external_api import get_transaction_amount
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
+from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
+from src.reader import read_csv_file, read_xlsx_file
 from src.utils import get_operations_data
 from src.widget import get_date, mask_account_card
+
+card = input("Введите карту: ")
+print(get_mask_card_number(card))
+
+account = input("Введите карту: ")
+print(get_mask_account(account))
 
 account_card = input("Введите номер: ")
 date = input("Введите дату: ")
@@ -86,3 +94,7 @@ for transaction in transactions:
     print(get_transaction_amount(transaction))
 
 print(get_operations_data("data/operations.json"))
+
+print(read_csv_file("data/transactions.csv"))
+
+print(read_xlsx_file("data/transactions_excel.xlsx"))
